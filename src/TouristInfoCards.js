@@ -22,22 +22,26 @@ const TouristInfoCards = () => {
       image: "./images/London.jpg",
       cityName: "LONDON",
       description:
-        "The Houses of Parliament and Elizabeth Tower, commonly called Big Ben, are among London's most iconic landmarks and must-see London attractions. Technically, Big Ben is the name given to the massive bell inside the clock tower, which weighs more than 13 tons (13,760 kg).  The clock tower looks spectacular at night when the four clock faces are illuminated.",
+        "The Houses of Parliament and Elizabeth Tower, commonly called Big Ben, are among London's most iconic landmarks and must-see London attractions. Technically, Big Ben is the name given to the massive bell inside the clock tower, which weighs more than 13 tons (13,760 kg).",
       cardURL: "https://visitlondon.com/",
       id: 3
     }
   ];
   return (
     // we are giving the "key" to the parent element <div>
-    <div className="cards">
+    <div className="cards mt-5 mb-5 text-center">
       {cardInfo.map(card => {
         return (
           <div className="card" key={card.id}>
-            <img src={card.image} className="card-img-top" alt="city" />
+            <img
+              src={card.image}
+              className="card-img-top img-responsive img-thumbnail"
+              alt="city"
+            />
             <div className="card-body">
               <h3>{card.cityName}</h3>
               <p>{card.description}</p>
-              <a href={card.cardURL} className="btn btn-primary">
+              <a href={card.cardURL} className="btn btn-primary ">
                 More Information
               </a>
             </div>
