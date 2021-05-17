@@ -122,6 +122,19 @@ h3 {
 
 .footer {
   margin: 0 auto;
-  color: #007bff;
+  color: #669ee7;
   list-style: none;
+  background-color: black;
+}
+
+h3 {
+  display: flex;
+  justify-content: center;
+}
+.meal-list {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  font-weight: bold;
+  background-color: blanchedalmond;
 }

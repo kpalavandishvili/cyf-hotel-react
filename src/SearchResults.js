@@ -1,39 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
+import "./searchResults.css";
 // import moment from "./moment"
 
 const SearchResults = props => {
-  // const searchInfo = [
-  //   {
-  //     id: 1,
-  //     title: `Coliseum`,
-  //     firstName: `Chris`,
-  //     surname: `Brown`,
-  //     email: `efake@fake.com`,
-  //     roomId: `203`,
-  //     checkIn: `23/11/2021`,
-  //     checkOut: `25/11/2021`
-  //   },
-  //   {
-  //     id: 2,
-  //     title: `Radisson Blue`,
-  //     firstName: `Johny`,
-  //     surname: `Dap`,
-  //     email: `efake@fake.co.uk`,
-  //     roomId: `123`,
-  //     checkIn: `25/12/2021`,
-  //     checkOut: `2/01/2021`
-  //   },
-  //   {
-  //     id: 3,
-  //     title: `Plaza Espana`,
-  //     firstName: `Luis`,
-  //     surname: `Sanchez`,
-  //     email: `efake@fake.au`,
-  //     roomId: `12`,
-  //     checkIn: `2/10/2021`,
-  //     checkOut: `5/10/2021`
-  //   }
-  // ];
+  const [isRowHighlighted, setIsRowHighlighted] = useState({});
+
+  const handleClick = index => {
+    const copy = { ...isRowHighlighted };
+    const rowValue = copy[index];
+
+    console.log("rowValue", rowValue, !rowValue);
+
+    copy[index] = !rowValue;
+    // copy[index] = rowValue === true ? false : true;
+    // copy[index] = rowValue ? false : true;
+    setIsRowHighlighted(copy);
+
+    console.log(index, copy);
+  };
 
   return (
     // Add another column which shows the number of nights a guest is staying #7
@@ -55,7 +39,13 @@ const SearchResults = props => {
       <tbody>
         {props.bookings &&
           props.bookings.map((element, index) => (
-            <tr key={index}>
+            <tr
+              className={
+                isRowHighlighted[index] ? "highlighted" : "notHighlighted"
+              }
+              onClick={() => handleClick(index)}
+              key={index}
+            >
               <td>{element.id}</td>
               <td>{element.title}</td>
               <td>{element.firstName}</td>
@@ -77,7 +67,7 @@ function countDays(startDate, endDate) {
   const testStartDate = new Date(startDate);
   const testEndDate = new Date(endDate);
   const difference = testEndDate.getTime() - testStartDate.getTime();
-  console.log({ differenceinDays: difference / 1000 / 60 / 60 / 24 });
+  //console.log({ differenceinDays: difference / 1000 / 60 / 60 / 24 });
 
   return difference / 1000 / 60 / 60 / 24;
 

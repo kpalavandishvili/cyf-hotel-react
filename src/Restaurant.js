@@ -2,16 +2,17 @@ import React from "react";
 import Order from "./Order";
 
 const Restaurant = () => {
+  const orderTypes = ["Pizzas", "Salads", "Chocolate cake"];
   return (
     <div>
       <h3>Restaurant Orders</h3>
-      <ul>
-        <Order orderType="Pizzas" />
+      <ul className="meal-list">
+        {orderTypes.map(orderType => {
+          return <Order orderType={orderType} />;
+        })}
       </ul>
     </div>
   );
 };
-
-// Line #13 Ex. 10 add a `onClick` handler to the Add `<button>`
 
 export default Restaurant;

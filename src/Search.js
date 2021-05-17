@@ -1,7 +1,10 @@
 import React from "react";
 import SearchButton from "./SearchButton";
 
-const Search = () => {
+const Search = props => {
+  const onSearch = () => {
+    props.search();
+  };
   return (
     <div className="search">
       <div className="page-header">
@@ -9,18 +12,18 @@ const Search = () => {
       </div>
       <div className="row search-wrapper">
         <div className="col">
-          <form className="form-group search-box">
-            <label htmlFor="customerName">Customer name</label>
-            <div className="search-row">
-              <input
-                type="text"
-                id="customerName"
-                className="form-control"
-                placeholder="Customer name"
-              />
-              <SearchButton />
-            </div>
-          </form>
+          {/* <form className="form-group search-box"> */}
+          <label htmlFor="customerName">Customer name</label>
+          <div className="search-row">
+            <input
+              type="text"
+              id="customerName"
+              className="form-control"
+              placeholder="Customer name"
+            />
+            <SearchButton onSearch={onSearch} />
+          </div>
+          {/* </form> */}
         </div>
       </div>
     </div>
