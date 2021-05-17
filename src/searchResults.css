@@ -1,7 +1,7 @@
 .highlighted {
-  background-color: purple;
+  background-color: rgba(202, 26, 26, 0.39);
 }
 
 .notHighlighted {
-  background-color: white;
+  background-color: rgb(209, 193, 235);
 }
